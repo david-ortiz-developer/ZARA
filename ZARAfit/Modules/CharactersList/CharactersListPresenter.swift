@@ -11,10 +11,16 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var router: CharactersListRouterProtocol?
     var view: CharactersListViewControllerProtocol?
     
+    var characters: [CharacterObject]?
+    
     func listCharacters() {
         self.view?.showLoader()
         self.interactor?.loadCharacters { result in
+            if let responseList = result {
+                self.characters = responseList.results
+            }
             DispatchQueue.main.async {
+                self.view?.reloadTable()
                 self.view?.hideLoader()
             }
         }

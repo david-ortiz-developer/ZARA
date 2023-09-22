@@ -24,6 +24,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Zjy-SF-qEz">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-Qw-zX8">
+                                <rect key="frame" x="15" y="119" width="363" height="684"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="hCx-KX-D5Q"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="ElK-4S-kAY"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMf-1u-Lvl">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
@@ -58,13 +66,18 @@
                             <constraint firstItem="Zjy-SF-qEz" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Hwt-jv-sq6"/>
                             <constraint firstAttribute="bottom" secondItem="qMf-1u-Lvl" secondAttribute="bottom" id="VAc-4b-eQ6"/>
                             <constraint firstItem="qMf-1u-Lvl" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="ZS7-fh-Hql"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rha-Qw-zX8" secondAttribute="trailing" constant="15" id="e32-nS-Swh"/>
                             <constraint firstItem="Zjy-SF-qEz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="fnD-uH-dpT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Rha-Qw-zX8" secondAttribute="bottom" constant="15" id="lFh-Bv-esK"/>
+                            <constraint firstItem="Rha-Qw-zX8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="s2O-1r-Hce"/>
                             <constraint firstAttribute="bottom" secondItem="Zjy-SF-qEz" secondAttribute="bottom" id="wUl-Hd-HTa"/>
                             <constraint firstAttribute="trailing" secondItem="qMf-1u-Lvl" secondAttribute="trailing" id="wa1-Nn-57j"/>
+                            <constraint firstItem="Rha-Qw-zX8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="yPe-Ak-oXY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="loaderView" destination="qMf-1u-Lvl" id="kYr-Kp-d4G"/>
+                        <outlet property="tableView" destination="Rha-Qw-zX8" id="3yJ-ZI-5qf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

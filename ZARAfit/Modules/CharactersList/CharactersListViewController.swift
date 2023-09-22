@@ -9,9 +9,11 @@ import UIKit
 import Lottie
 
 class CharactersListViewController: UIViewController, CharactersListViewControllerProtocol {
-    @IBOutlet weak var loaderView: UIView!
-    private var animationView: LottieAnimationView?
     
+    @IBOutlet weak var loaderView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    private var animationView: LottieAnimationView?
     var presenter: CharactersListPresenterProtocol?
 
 
@@ -46,5 +48,22 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
                })
 
     }
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
 }
-
+extension CharactersListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.presenter?.characters?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        if let characterInfo: CharacterObject = self.presenter?.characters?[indexPath.row] {
+            cell.textLabel?.text = characterInfo.name
+        }
+        return cell
+    }
+    
+    
+}
