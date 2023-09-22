@@ -14,10 +14,14 @@ protocol CharactersListPresenterProtocol {
     var view: CharactersListViewControllerProtocol? {get set}
     var router: CharactersListRouterProtocol? {get set}
     var interactor: CharactersListInteractorProtocol? {get set}
+    
+    func listCharacters()
 }
 protocol CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}
 }
 protocol CharactersListViewControllerProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}
+    func showLoader()
+    func hideLoader()
 }

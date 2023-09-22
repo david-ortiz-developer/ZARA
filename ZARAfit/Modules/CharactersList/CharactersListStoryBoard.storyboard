@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="get_schwifty.ttf">
+            <string>GetSchwifty-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Characters List View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -15,18 +20,65 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Zjy-SF-qEz">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMf-1u-Lvl">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-7M-oLH">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-1K-Qqg">
+                                        <rect key="frame" x="33" y="80" width="327" height="183"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="183" id="TVi-QZ-L25"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GetSchwifty-Regular" family="Get Schwifty" pointSize="105"/>
+                                        <color key="textColor" systemColor="systemIndigoColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dUM-7M-oLH" firstAttribute="leading" secondItem="qMf-1u-Lvl" secondAttribute="leading" id="EZL-PJ-cdU"/>
+                                    <constraint firstAttribute="bottom" secondItem="dUM-7M-oLH" secondAttribute="bottom" id="F5d-DM-iNM"/>
+                                    <constraint firstItem="dUM-7M-oLH" firstAttribute="top" secondItem="qMf-1u-Lvl" secondAttribute="top" id="FYJ-rE-ghk"/>
+                                    <constraint firstItem="vlh-1K-Qqg" firstAttribute="centerX" secondItem="qMf-1u-Lvl" secondAttribute="centerX" id="Z1e-Pu-Bpo"/>
+                                    <constraint firstAttribute="trailing" secondItem="dUM-7M-oLH" secondAttribute="trailing" id="gtJ-jT-QZL"/>
+                                    <constraint firstItem="vlh-1K-Qqg" firstAttribute="top" secondItem="qMf-1u-Lvl" secondAttribute="top" constant="80" id="nfx-kX-mQM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Zjy-SF-qEz" secondAttribute="trailing" id="5a2-JR-hyd"/>
+                            <constraint firstItem="qMf-1u-Lvl" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="99S-WT-FfM"/>
+                            <constraint firstItem="Zjy-SF-qEz" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Hwt-jv-sq6"/>
+                            <constraint firstAttribute="bottom" secondItem="qMf-1u-Lvl" secondAttribute="bottom" id="VAc-4b-eQ6"/>
+                            <constraint firstItem="qMf-1u-Lvl" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="ZS7-fh-Hql"/>
+                            <constraint firstItem="Zjy-SF-qEz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="fnD-uH-dpT"/>
+                            <constraint firstAttribute="bottom" secondItem="Zjy-SF-qEz" secondAttribute="bottom" id="wUl-Hd-HTa"/>
+                            <constraint firstAttribute="trailing" secondItem="qMf-1u-Lvl" secondAttribute="trailing" id="wa1-Nn-57j"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="loaderView" destination="qMf-1u-Lvl" id="kYr-Kp-d4G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5" y="-27"/>
+            <point key="canvasLocation" x="3.8167938931297707" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="backgroundImage" width="1183" height="2560"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

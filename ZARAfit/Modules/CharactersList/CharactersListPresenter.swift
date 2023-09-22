@@ -10,4 +10,8 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var interactor: CharactersListInteractorProtocol?
     var router: CharactersListRouterProtocol?
     var view: CharactersListViewControllerProtocol?
+    
+    func listCharacters() {
+        self.view?.showLoader()
+    }
 }
