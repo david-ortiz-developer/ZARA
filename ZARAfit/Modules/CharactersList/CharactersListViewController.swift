@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Lottie
 
-class ViewController: UIViewController {
+class CharactersListViewController: UIViewController, CharactersListViewControllerProtocol {
+    var presenter: CharactersListPresenterProtocol?
+    
+    private var animationView: LottieAnimationView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

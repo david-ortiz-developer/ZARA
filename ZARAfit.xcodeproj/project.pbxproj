@@ -9,13 +9,30 @@
 /* Begin PBXBuildFile section */
 		62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */; };
 		62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */; };
-		62DA1B2D2ABDC29B004FC2C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* ViewController.swift */; };
+		62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */; };
 		62DA1B302ABDC29B004FC2C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B2E2ABDC29B004FC2C8 /* Main.storyboard */; };
 		62DA1B322ABDC2A1004FC2C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B312ABDC2A1004FC2C8 /* Assets.xcassets */; };
 		62DA1B352ABDC2A1004FC2C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B332ABDC2A1004FC2C8 /* LaunchScreen.storyboard */; };
 		62DA1B402ABDC2A1004FC2C8 /* ZARAfitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B3F2ABDC2A1004FC2C8 /* ZARAfitTests.swift */; };
 		62DA1B4A2ABDC2A2004FC2C8 /* ZARAfitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B492ABDC2A2004FC2C8 /* ZARAfitUITests.swift */; };
 		62DA1B4C2ABDC2A2004FC2C8 /* ZARAfitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B4B2ABDC2A2004FC2C8 /* ZARAfitUITestsLaunchTests.swift */; };
+		62DA1B5A2ABE09B5004FC2C8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 62DA1B592ABE09B5004FC2C8 /* Lottie */; };
+		62DA1B5E2ABE12B1004FC2C8 /* animation_lmuxghgn.json in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B5D2ABE12B1004FC2C8 /* animation_lmuxghgn.json */; };
+		62DA1B612ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */; };
+		62DA1B622ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */; };
+		62DA1B632ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */; };
+		62DA1B692ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */; };
+		62DA1B6A2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */; };
+		62DA1B6B2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */; };
+		62DA1B6D2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B6C2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard */; };
+		62DA1B6E2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B6C2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard */; };
+		62DA1B6F2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B6C2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard */; };
+		62DA1B712ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */; };
+		62DA1B722ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */; };
+		62DA1B732ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */; };
+		62DA1B752ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */; };
+		62DA1B762ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */; };
+		62DA1B772ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +56,7 @@
 		62DA1B252ABDC29B004FC2C8 /* ZARAfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZARAfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		62DA1B2C2ABDC29B004FC2C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		62DA1B2F2ABDC29B004FC2C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		62DA1B312ABDC2A1004FC2C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62DA1B342ABDC2A1004FC2C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +66,12 @@
 		62DA1B452ABDC2A2004FC2C8 /* ZARAfitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZARAfitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DA1B492ABDC2A2004FC2C8 /* ZARAfitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZARAfitUITests.swift; sourceTree = "<group>"; };
 		62DA1B4B2ABDC2A2004FC2C8 /* ZARAfitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZARAfitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		62DA1B5D2ABE12B1004FC2C8 /* animation_lmuxghgn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmuxghgn.json; sourceTree = "<group>"; };
+		62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
+		62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListProtocol.swift; sourceTree = "<group>"; };
+		62DA1B6C2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharactersListStoryBoard.storyboard; sourceTree = "<group>"; };
+		62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
+		62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B5A2ABE09B5004FC2C8 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +123,10 @@
 		62DA1B272ABDC29B004FC2C8 /* ZARAfit */ = {
 			isa = PBXGroup;
 			children = (
-				62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */,
-				62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */,
-				62DA1B2C2ABDC29B004FC2C8 /* ViewController.swift */,
-				62DA1B2E2ABDC29B004FC2C8 /* Main.storyboard */,
-				62DA1B312ABDC2A1004FC2C8 /* Assets.xcassets */,
-				62DA1B332ABDC2A1004FC2C8 /* LaunchScreen.storyboard */,
 				62DA1B362ABDC2A1004FC2C8 /* Info.plist */,
+				62DA1B5F2ABE205D004FC2C8 /* SupportingFiles */,
+				62DA1B642ABE21FB004FC2C8 /* Modules */,
+				62DA1B652ABE235A004FC2C8 /* Resources */,
 			);
 			path = ZARAfit;
 			sourceTree = "<group>";
@@ -127,6 +148,55 @@
 			path = ZARAfitUITests;
 			sourceTree = "<group>";
 		};
+		62DA1B5F2ABE205D004FC2C8 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B2E2ABDC29B004FC2C8 /* Main.storyboard */,
+				62DA1B332ABDC2A1004FC2C8 /* LaunchScreen.storyboard */,
+				62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */,
+				62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		62DA1B642ABE21FB004FC2C8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B662ABE2387004FC2C8 /* CharactersList */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		62DA1B652ABE235A004FC2C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B672ABE23AD004FC2C8 /* LottieAnimations */,
+				62DA1B312ABDC2A1004FC2C8 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		62DA1B662ABE2387004FC2C8 /* CharactersList */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */,
+				62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */,
+				62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */,
+				62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */,
+				62DA1B6C2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard */,
+				62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */,
+			);
+			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		62DA1B672ABE23AD004FC2C8 /* LottieAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B5D2ABE12B1004FC2C8 /* animation_lmuxghgn.json */,
+			);
+			path = LottieAnimations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +213,9 @@
 			dependencies = (
 			);
 			name = ZARAfit;
+			packageProductDependencies = (
+				62DA1B592ABE09B5004FC2C8 /* Lottie */,
+			);
 			productName = ZARAfit;
 			productReference = 62DA1B252ABDC29B004FC2C8 /* ZARAfit.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +288,9 @@
 				Base,
 			);
 			mainGroup = 62DA1B1C2ABDC29B004FC2C8;
+			packageReferences = (
+				62DA1B582ABE09B5004FC2C8 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 62DA1B262ABDC29B004FC2C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,9 +307,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B5E2ABE12B1004FC2C8 /* animation_lmuxghgn.json in Resources */,
 				62DA1B352ABDC2A1004FC2C8 /* LaunchScreen.storyboard in Resources */,
 				62DA1B322ABDC2A1004FC2C8 /* Assets.xcassets in Resources */,
 				62DA1B302ABDC29B004FC2C8 /* Main.storyboard in Resources */,
+				62DA1B6D2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B6E2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B6F2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62DA1B2D2ABDC29B004FC2C8 /* ViewController.swift in Sources */,
+				62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */,
 				62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */,
+				62DA1B712ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
+				62DA1B752ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
+				62DA1B692ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
+				62DA1B612ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
 				62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B722ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
+				62DA1B622ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
+				62DA1B6A2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
+				62DA1B762ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
 				62DA1B402ABDC2A1004FC2C8 /* ZARAfitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,8 +364,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B772ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
+				62DA1B732ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
 				62DA1B4C2ABDC2A2004FC2C8 /* ZARAfitUITestsLaunchTests.swift in Sources */,
+				62DA1B6B2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B4A2ABDC2A2004FC2C8 /* ZARAfitUITests.swift in Sources */,
+				62DA1B632ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +688,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62DA1B582ABE09B5004FC2C8 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		62DA1B592ABE09B5004FC2C8 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62DA1B582ABE09B5004FC2C8 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 62DA1B1D2ABDC29B004FC2C8 /* Project object */;
 }
