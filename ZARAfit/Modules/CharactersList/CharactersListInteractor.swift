@@ -5,7 +5,31 @@
 //  Created by Davit on 22/09/23.
 //
 
-import Foundation
+import UIKit
 class CharactersListInteractor: CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol?
+    func loadCharacters(completion: @escaping (CharacterObjectResponse?) -> Void) {
+        self.loadFromServer { characters  in
+            completion(characters)
+        }
+    }
+    func loadFromServer(completion: @escaping (CharacterObjectResponse?) -> Void) {
+        if let url = URL(string: "https://rickandmortyapi.com/api/character") {
+            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+                if let _ = error {
+                    completion(nil)
+                }
+                if let jsonData = data {
+                    let responseList: CharacterObjectResponse = try! JSONDecoder().decode(CharacterObjectResponse.self, from: jsonData)
+                    DispatchQueue.main.async {
+                        //self.save(banks: banksList)
+                    }
+                    
+                    completion(responseList)
+                }
+            }
+            
+            urlSession.resume()
+        }
+    }
 }

@@ -19,6 +19,7 @@ protocol CharactersListPresenterProtocol {
 }
 protocol CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}
+    func loadCharacters(completion: @escaping (CharacterObjectResponse?) -> Void)
 }
 protocol CharactersListViewControllerProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}

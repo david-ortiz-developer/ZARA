@@ -25,17 +25,21 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
     }
 
     func showLoader() {
+        self.loaderView.alpha = 0.0
         animationView = .init(name:"animation_lmuxghgn")
         animationView?.frame = view.bounds
         animationView?.contentMode = .scaleAspectFit
         animationView?.loopMode = .loop
         loaderView.addSubview(animationView!)
         animationView?.play()
-        loaderView.isHidden = false
+        UIView.animate(withDuration: 2.0, delay: 0.5, options: .curveEaseIn, animations: {
+            self.loaderView.alpha = 1.0
+            self.loaderView.isHidden = false
+        })
     }
     func hideLoader() {
-        UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
-                   self.animationView?.alpha = 0.0
+        UIView.animate(withDuration: 2.0, delay: 1.0, options: .curveEaseOut, animations: {
+                   self.loaderView?.alpha = 0.0
                }, completion: {_ in
                    self.animationView?.removeFromSuperview()
                    self.loaderView.isHidden = true

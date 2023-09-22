@@ -13,5 +13,10 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     
     func listCharacters() {
         self.view?.showLoader()
+        self.interactor?.loadCharacters { result in
+            DispatchQueue.main.async {
+                self.view?.hideLoader()
+            }
+        }
     }
 }

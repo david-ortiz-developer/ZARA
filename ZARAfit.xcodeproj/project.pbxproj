@@ -35,6 +35,8 @@
 		62DA1B772ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */; };
 		62DA1B7A2ABE39C8004FC2C8 /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B792ABE39C7004FC2C8 /* get_schwifty.ttf */; };
 		62DA1B7C2ABE39CE004FC2C8 /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B792ABE39C7004FC2C8 /* get_schwifty.ttf */; };
+		62DA1B7F2ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */; };
+		62DA1B802ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,7 @@
 		62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
 		62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractor.swift; sourceTree = "<group>"; };
 		62DA1B792ABE39C7004FC2C8 /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
+		62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObjectResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,7 @@
 		62DA1B662ABE2387004FC2C8 /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
+				62DA1B7D2ABE4204004FC2C8 /* Entities */,
 				62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */,
 				62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */,
 				62DA1B702ABE28B1004FC2C8 /* CharactersListPresenter.swift */,
@@ -207,6 +211,14 @@
 				62DA1B792ABE39C7004FC2C8 /* get_schwifty.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		62DA1B7D2ABE4204004FC2C8 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +368,7 @@
 				62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */,
 				62DA1B712ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
 				62DA1B752ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
+				62DA1B7F2ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */,
 				62DA1B692ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B612ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
 				62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */,
@@ -370,6 +383,7 @@
 				62DA1B622ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
 				62DA1B6A2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B762ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
+				62DA1B802ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */,
 				62DA1B402ABDC2A1004FC2C8 /* ZARAfitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
