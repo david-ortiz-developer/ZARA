@@ -37,6 +37,10 @@
 		62DA1B7C2ABE39CE004FC2C8 /* get_schwifty.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 62DA1B792ABE39C7004FC2C8 /* get_schwifty.ttf */; };
 		62DA1B7F2ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */; };
 		62DA1B802ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */; };
+		62DA1B822ABFA1D6004FC2C8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B812ABFA1D6004FC2C8 /* ImageLoader.swift */; };
+		62DA1B832ABFA1D6004FC2C8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B812ABFA1D6004FC2C8 /* ImageLoader.swift */; };
+		62DA1B862ABFA404004FC2C8 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */; };
+		62DA1B872ABFA404004FC2C8 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,8 @@
 		62DA1B742ABE2990004FC2C8 /* CharactersListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractor.swift; sourceTree = "<group>"; };
 		62DA1B792ABE39C7004FC2C8 /* get_schwifty.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = get_schwifty.ttf; sourceTree = "<group>"; };
 		62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterObjectResponse.swift; sourceTree = "<group>"; };
+		62DA1B812ABFA1D6004FC2C8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,7 @@
 				62DA1B332ABDC2A1004FC2C8 /* LaunchScreen.storyboard */,
 				62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */,
 				62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */,
+				62DA1B812ABFA1D6004FC2C8 /* ImageLoader.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 		62DA1B662ABE2387004FC2C8 /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
+				62DA1B842ABFA3E6004FC2C8 /* cell */,
 				62DA1B7D2ABE4204004FC2C8 /* Entities */,
 				62DA1B682ABE2450004FC2C8 /* CharactersListProtocol.swift */,
 				62DA1B602ABE21C3004FC2C8 /* CharactersListRouter.swift */,
@@ -219,6 +227,14 @@
 				62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		62DA1B842ABFA3E6004FC2C8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,8 +383,10 @@
 				62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */,
 				62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */,
 				62DA1B712ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
+				62DA1B862ABFA404004FC2C8 /* CharactersTableViewCell.swift in Sources */,
 				62DA1B752ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
 				62DA1B7F2ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */,
+				62DA1B822ABFA1D6004FC2C8 /* ImageLoader.swift in Sources */,
 				62DA1B692ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B612ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
 				62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */,
@@ -379,8 +397,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62DA1B832ABFA1D6004FC2C8 /* ImageLoader.swift in Sources */,
 				62DA1B722ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
 				62DA1B622ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
+				62DA1B872ABFA404004FC2C8 /* CharactersTableViewCell.swift in Sources */,
 				62DA1B6A2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B762ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
 				62DA1B802ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */,

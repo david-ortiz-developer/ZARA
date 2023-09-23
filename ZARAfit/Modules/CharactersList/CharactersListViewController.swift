@@ -58,11 +58,15 @@ extension CharactersListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        if let characterInfo: CharacterObject = self.presenter?.characters?[indexPath.row] {
-            cell.textLabel?.text = characterInfo.name
+        if let characterInfo: CharacterObject = self.presenter?.characters?[indexPath.row],
+         let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell
+        {
+            cell.nameLabel.text = characterInfo.name
+            return cell
+        } else {
+            return UITableViewCell()
         }
-        return cell
+        
     }
     
 }
