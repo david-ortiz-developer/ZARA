@@ -65,5 +65,16 @@ extension CharactersListViewController: UITableViewDataSource {
         return cell
     }
     
-    
+}
+extension CharactersListViewController: UITableViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        // Change 10.0 to adjust the distance from bottom
+        if maximumOffset - currentOffset <= 10.0 {
+            self.presenter?.page += 1
+            self.presenter?.listCharacters()
+        }
+    }
 }

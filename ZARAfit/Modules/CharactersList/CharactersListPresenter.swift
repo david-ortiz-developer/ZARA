@@ -12,16 +12,26 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var view: CharactersListViewControllerProtocol?
     
     var characters: [CharacterObject]?
+    var page = 1
+    var loading = false
     
     func listCharacters() {
-        self.view?.showLoader()
-        self.interactor?.loadCharacters { result in
-            if let responseList = result {
-                self.characters = responseList.results
-            }
-            DispatchQueue.main.async {
-                self.view?.reloadTable()
-                self.view?.hideLoader()
+        if self.loading == false {
+            self.view?.showLoader()
+            self.loading = true
+            self.interactor?.loadCharacters { result in
+                if let responseList = result {
+                    if self.page == 1 {
+                        self.characters = responseList.results
+                    } else {
+                        self.characters?.append(contentsOf: responseList.results)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.view?.reloadTable()
+                    self.view?.hideLoader()
+                }
+                self.loading = false
             }
         }
     }

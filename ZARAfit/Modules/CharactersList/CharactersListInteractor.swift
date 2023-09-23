@@ -14,7 +14,7 @@ class CharactersListInteractor: CharactersListInteractorProtocol {
         }
     }
     func loadFromServer(completion: @escaping (CharacterObjectResponse?) -> Void) {
-        if let url = URL(string: "https://rickandmortyapi.com/api/character") {
+        if let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\((self.presenter?.page ?? 1))") {
             let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
                 if let _ = error {
                     completion(nil)

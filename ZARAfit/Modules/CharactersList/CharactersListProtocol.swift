@@ -16,6 +16,9 @@ protocol CharactersListPresenterProtocol {
     var interactor: CharactersListInteractorProtocol? {get set}
     var characters: [CharacterObject]? {get set}
     
+    var page:Int {get set}
+    var loading: Bool {get set}
+    
     func listCharacters()
 }
 protocol CharactersListInteractorProtocol {
