@@ -21,8 +21,10 @@ class CharactersListRouter: CharactersListRouterProtocol {
         
         return view
     }
-    func showDetailView(for character: CharacterObject) {
-        print("router showing \(character.name)")
+     func createDetailView(for character: CharacterObject) -> CharacterDetailViewController {
+         let detailView = CharactersListRouter.mainstoryboard.instantiateViewController(withIdentifier: "CharacterDetailView") as! CharacterDetailViewController
+         detailView.character = character
+         return detailView
     }
     static var mainstoryboard: UIStoryboard{
             return UIStoryboard(name:"CharactersListStoryBoard",bundle: Bundle.main)

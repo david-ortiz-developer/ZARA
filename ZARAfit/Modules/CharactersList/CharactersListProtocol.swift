@@ -8,7 +8,7 @@
 import UIKit
 protocol CharactersListRouterProtocol {
     static func  createCharactersListView() -> CharactersListViewController
-    func showDetailView(for character: CharacterObject)
+     func createDetailView(for character: CharacterObject) -> CharacterDetailViewController
 }
 
 protocol CharactersListPresenterProtocol {
@@ -35,4 +35,5 @@ protocol CharactersListViewControllerProtocol {
     func showLoader()
     func hideLoader()
     func reloadTable()
+    func showDetailViewController(viewController: CharacterDetailViewController)
 }

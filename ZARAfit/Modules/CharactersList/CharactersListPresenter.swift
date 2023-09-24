@@ -38,6 +38,7 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
         }
     }
     func showDetailfor(character: CharacterObject) {
-        self.router?.showDetailView(for: character)
+        guard let detailVC = self.router?.createDetailView(for: character) else { return  }
+        self.view?.showDetailViewController(viewController: detailVC)
     }
 }

@@ -107,4 +107,7 @@ extension CharactersListViewController: UITableViewDelegate {
             self.presenter?.showDetailfor(character: character)
         }
     }
+    func showDetailViewController(viewController: CharacterDetailViewController) {
+        self.present(viewController, animated: true)
+    }
 }
