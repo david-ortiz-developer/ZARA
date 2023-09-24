@@ -62,6 +62,26 @@ extension CharactersListViewController: UITableViewDataSource {
          let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell
         {
             cell.nameLabel.text = characterInfo.name
+            cell.nameLabel.layer.masksToBounds = false
+            cell.nameLabel.layer.cornerRadius = 5.0
+            cell.nameLabel.clipsToBounds = true
+            if let strUrl = characterInfo.image.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+                let imgUrl = URL(string: strUrl) {
+
+                cell.cellImage.loadImageWithUrl(imgUrl)
+                cell.cellImage.layer.masksToBounds = false
+                cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height/2
+                cell.cellImage.layer.borderWidth = 1
+                cell.cellImage.layer.borderColor = UIColor.clear.cgColor
+                cell.cellImage.clipsToBounds = true
+                
+                cell.backgroundRoundView.layer.masksToBounds = false
+                cell.backgroundRoundView.layer.cornerRadius = cell.backgroundRoundView.frame.height/2
+                cell.backgroundRoundView.layer.borderWidth = 1
+                cell.backgroundRoundView.layer.borderColor = UIColor.clear.cgColor
+                cell.backgroundRoundView.clipsToBounds = true
+                cell.selectedBackgroundView?.backgroundColor = .systemMint
+          }
             return cell
         } else {
             return UITableViewCell()
@@ -72,13 +92,19 @@ extension CharactersListViewController: UITableViewDataSource {
 }
 extension CharactersListViewController: UITableViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let currentOffset = scrollView.contentOffset.y
-        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-
-        // Change 10.0 to adjust the distance from bottom
-        if maximumOffset - currentOffset <= 10.0 {
-            self.presenter?.page += 1
-            self.presenter?.listCharacters()
+        if (self.presenter?.page ?? 1) < (self.presenter?.totalPages ?? 1) {
+            let currentOffset = scrollView.contentOffset.y
+            let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+            
+            if maximumOffset - currentOffset <= 10.0 {
+                self.presenter?.page += 1
+                self.presenter?.listCharacters()
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let character = self.presenter?.characters?[indexPath.row] {
+            self.presenter?.showDetailfor(character: character)
         }
     }
 }

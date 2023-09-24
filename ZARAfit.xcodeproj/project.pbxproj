@@ -176,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				62DA1B662ABE2387004FC2C8 /* CharactersList */,
+				62DA1B8B2ABFC277004FC2C8 /* CharacterDetail */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -235,6 +236,13 @@
 				62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		62DA1B8B2ABFC277004FC2C8 /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CharacterDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

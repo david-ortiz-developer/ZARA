@@ -13,6 +13,7 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     
     var characters: [CharacterObject]?
     var page = 1
+    var totalPages = 1
     var loading = false
     
     func listCharacters() {
@@ -23,6 +24,7 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
                 if let responseList = result {
                     if self.page == 1 {
                         self.characters = responseList.results
+                        self.totalPages = responseList.info.pages
                     } else {
                         self.characters?.append(contentsOf: responseList.results)
                     }
@@ -34,5 +36,8 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
                 self.loading = false
             }
         }
+    }
+    func showDetailfor(character: CharacterObject) {
+        self.router?.showDetailView(for: character)
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 protocol CharactersListRouterProtocol {
     static func  createCharactersListView() -> CharactersListViewController
+    func showDetailView(for character: CharacterObject)
 }
 
 protocol CharactersListPresenterProtocol {
@@ -16,10 +17,12 @@ protocol CharactersListPresenterProtocol {
     var interactor: CharactersListInteractorProtocol? {get set}
     var characters: [CharacterObject]? {get set}
     
-    var page:Int {get set}
+    var page: Int {get set}
+    var totalPages: Int {get set}
     var loading: Bool {get set}
     
     func listCharacters()
+    func showDetailfor(character: CharacterObject)
 }
 protocol CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}
