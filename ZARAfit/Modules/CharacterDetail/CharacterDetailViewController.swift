@@ -38,6 +38,7 @@ class CharacterDetailViewController: UIViewController {
         frameAnimationView?.play()
         
         self.characterName.text = character.name
+        self.characterName.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -10.radians...10.radians))
         
         self.view.bringSubviewToFront(closeButton)
         

@@ -179,9 +179,9 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Va0-AB-vuK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GetSchwifty-Regular" family="Get Schwifty" pointSize="100"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" systemColor="systemMintColor"/>
                                 <size key="shadowOffset" width="5" height="5"/>
                             </label>
                         </subviews>
