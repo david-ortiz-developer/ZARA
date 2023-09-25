@@ -49,6 +49,9 @@
 		62DA1B9B2AC0D378004FC2C8 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B9A2AC0D378004FC2C8 /* CommonExtensions.swift */; };
 		62DA1B9C2AC0D378004FC2C8 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B9A2AC0D378004FC2C8 /* CommonExtensions.swift */; };
 		62DA1B9D2AC0D378004FC2C8 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B9A2AC0D378004FC2C8 /* CommonExtensions.swift */; };
+		62DA1B9F2AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B9E2AC11609004FC2C8 /* CharacterInfoCell.swift */; };
+		62DA1BA02AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B9E2AC11609004FC2C8 /* CharacterInfoCell.swift */; };
+		62DA1BA12AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B9E2AC11609004FC2C8 /* CharacterInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,7 @@
 		62DA1B932AC0BF34004FC2C8 /* animation_lmxtsihn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmxtsihn.json; sourceTree = "<group>"; };
 		62DA1B962AC0C482004FC2C8 /* animation_lmxum64d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmxum64d.json; sourceTree = "<group>"; };
 		62DA1B9A2AC0D378004FC2C8 /* CommonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
+		62DA1B9E2AC11609004FC2C8 /* CharacterInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */,
+				62DA1B9E2AC11609004FC2C8 /* CharacterInfoCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62DA1B912AC0AEAA004FC2C8 /* CharacterDetailViewController.swift in Sources */,
+				62DA1B9F2AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */,
 				62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */,
 				62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */,
 				62DA1B712ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
@@ -442,6 +448,7 @@
 				62DA1B6A2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B762ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
 				62DA1B802ABE422E004FC2C8 /* CharacterObjectResponse.swift in Sources */,
+				62DA1BA02AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */,
 				62DA1B922AC0AEAA004FC2C8 /* CharacterDetailViewController.swift in Sources */,
 				62DA1B402ABDC2A1004FC2C8 /* ZARAfitTests.swift in Sources */,
 			);
@@ -454,6 +461,7 @@
 				62DA1B772ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
 				62DA1B732ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
 				62DA1B4C2ABDC2A2004FC2C8 /* ZARAfitUITestsLaunchTests.swift in Sources */,
+				62DA1BA12AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */,
 				62DA1B6B2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				62DA1B4A2ABDC2A2004FC2C8 /* ZARAfitUITests.swift in Sources */,
 				62DA1B632ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
