@@ -69,16 +69,47 @@ final class ZARAfitTests: XCTestCase {
     override func tearDownWithError() throws {
         self.presenter = nil
     }
-
-    func testCharactersList() throws {
-        self.presenter?.listCharacters()
-        XCTAssert(self.presenter?.characters?.count ?? 0 > 0)
+    func listCharactersAndAssert() {
+           presenter?.listCharacters()
+           XCTAssertNotNil(presenter?.characters)
+           XCTAssert(presenter?.characters?.count ?? 0 > 0)
+       }
+    private func isValidURL(_ urlString: String) -> Bool {
+        if let url = URL(string: urlString) {
+            return UIApplication.shared.canOpenURL(url)
+        }
+        return false
     }
-    func testCharacterName() throws {
-        self.presenter?.listCharacters()
+    
+    func testCharactersList() throws {
+        listCharactersAndAssert()
+    }
+    func testCharacterPages() throws {
+        listCharactersAndAssert()
         XCTAssert(self.presenter?.totalPages == 12)
     }
-
+    func testCharacterStatus() throws {
+        listCharactersAndAssert()
+        let validStatuses = ["Alive", "Dead", "unknown"]
+        
+        for character in presenter?.characters ?? [] {
+            XCTAssert(validStatuses.contains(character.status), "Invalid character status: \(character.status)")
+        }
+    }
+    func testCharacterImages() throws {
+        listCharactersAndAssert()
+        
+        for character in presenter?.characters ?? [] {
+            XCTAssertTrue(isValidURL(character.image), "Invalid character image URL: \(character.image)")
+        }
+    }
+    func testCharacterOriginURL() throws {
+        listCharactersAndAssert()
+        
+        for character in presenter?.characters ?? [] {
+            XCTAssertTrue(isValidURL(character.origin.url), "Invalid character origin URL: \(character.origin.url)")
+        }
+    }
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

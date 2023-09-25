@@ -26,7 +26,6 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
         super.viewDidLoad()
         configureUI()
         self.presenter?.listCharacters()
-        self.hideErrorView(sender: UIButton())
     }
     func configureUI() {
         searchController.hidesNavigationBarDuringPresentation = false
@@ -41,6 +40,7 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
         animationErrorView.addSubview(errorAnimation)
         errorAnimation.play()
         self.view.bringSubviewToFront(errorView)
+        self.hideErrorView(sender: UIButton())
     }
 
     func showLoader() {
