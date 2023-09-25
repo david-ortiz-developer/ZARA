@@ -198,4 +198,10 @@ extension CharactersListViewController: UITableViewDelegate {
     func showDetailViewController(viewController: CharacterDetailViewController) {
         self.present(viewController, animated: true)
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(rotationAngle: 360)
+        UIView.animate(withDuration: 0.5, delay: 0.05 * Double(indexPath.row), animations: {
+           cell.transform = CGAffineTransform(rotationAngle: 0.0)
+        })
+    }
 }
