@@ -22,12 +22,19 @@ final class ZARAfitUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
+    
+    func testIfAlexanderIsDead() throws {
         // UI tests must launch the application that they test.
+        
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let tablesQuery = app.tables
+        app.staticTexts["Rick Sanchez"].waitForExistence(timeout: 5)
+        tablesQuery.cells.containing(.staticText, identifier:"Rick Sanchez").children(matching: .other).element(boundBy: 2).swipeUp()
+        tablesQuery.cells.containing(.staticText, identifier:"Abadango Cluster Princess").children(matching: .other).element(boundBy: 0).swipeUp()
+        tablesQuery.cells.containing(.staticText, identifier:"Alan Rails").children(matching: .other).element(boundBy: 2)/*@START_MENU_TOKEN@*/.swipeUp()/*[[".swipeUp()",".swipeLeft()"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+        app.staticTexts["Alexander"].tap()
+        XCTAssert(app.staticTexts["Dead"].exists)
     }
 
     func testLaunchPerformance() throws {

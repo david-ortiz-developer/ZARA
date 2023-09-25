@@ -22,6 +22,12 @@
 		6230C9B22AC1E2140036A950 /* animation_lmz1snim.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */; };
 		6230C9B32AC1E2140036A950 /* animation_lmz1snim.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */; };
 		6230C9B42AC1E2140036A950 /* animation_lmz1snim.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */; };
+		6230C9B52AC1F2660036A950 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */; };
+		6230C9B62AC1F2690036A950 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */; };
+		6230C9B72AC1F2B90036A950 /* CharacterObjectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B7E2ABE422E004FC2C8 /* CharacterObjectResponse.swift */; };
+		6230C9B82AC1F2E30036A950 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B902AC0AEAA004FC2C8 /* CharacterDetailViewController.swift */; };
+		6230C9B92AC1F30C0036A950 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B812ABFA1D6004FC2C8 /* ImageLoader.swift */; };
+		6230C9BA2AC1F3260036A950 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */; };
 		62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */; };
 		62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */; };
 		62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */; };
@@ -480,6 +486,7 @@
 				6230C9AF2AC1DA6B0036A950 /* RickandMortyErrors.swift in Sources */,
 				62DA1B832ABFA1D6004FC2C8 /* ImageLoader.swift in Sources */,
 				6230C9A32AC1C44F0036A950 /* EmptyResultsTableViewCell.swift in Sources */,
+				6230C9B52AC1F2660036A950 /* CharactersListViewController.swift in Sources */,
 				62DA1B722ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
 				62DA1B622ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
 				62DA1B872ABFA404004FC2C8 /* CharactersTableViewCell.swift in Sources */,
@@ -496,12 +503,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6230C9B92AC1F30C0036A950 /* ImageLoader.swift in Sources */,
+				6230C9B62AC1F2690036A950 /* CharactersListViewController.swift in Sources */,
 				62DA1B772ABE2990004FC2C8 /* CharactersListInteractor.swift in Sources */,
+				6230C9BA2AC1F3260036A950 /* CharactersTableViewCell.swift in Sources */,
 				62DA1B732ABE28B1004FC2C8 /* CharactersListPresenter.swift in Sources */,
+				6230C9B72AC1F2B90036A950 /* CharacterObjectResponse.swift in Sources */,
 				62DA1B4C2ABDC2A2004FC2C8 /* ZARAfitUITestsLaunchTests.swift in Sources */,
 				62DA1BA12AC11609004FC2C8 /* CharacterInfoCell.swift in Sources */,
 				62DA1B6B2ABE2450004FC2C8 /* CharactersListProtocol.swift in Sources */,
 				6230C9B02AC1DA6B0036A950 /* RickandMortyErrors.swift in Sources */,
+				6230C9B82AC1F2E30036A950 /* CharacterDetailViewController.swift in Sources */,
 				6230C9A42AC1C44F0036A950 /* EmptyResultsTableViewCell.swift in Sources */,
 				62DA1B4A2ABDC2A2004FC2C8 /* ZARAfitUITests.swift in Sources */,
 				62DA1B632ABE21C3004FC2C8 /* CharactersListRouter.swift in Sources */,
