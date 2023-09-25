@@ -67,46 +67,64 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
         self.tableView.reloadData()
     }
     func updateSearchResults(for searchController: UISearchController) {
-        if let string = searchController.searchBar.text {
+        if let _ = searchController.searchBar.text {
             reloadTable()
         }
     }
 }
 extension CharactersListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.charactersFiltered?.count ?? 0
+        if let resultsCount = self.charactersFiltered?.count,
+           resultsCount > 0 {
+            return resultsCount
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let characterInfo: CharacterObject = self.charactersFiltered?[indexPath.row],
-         let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell
+        if let resultsCount = self.charactersFiltered?.count,
+        resultsCount > 0
         {
-            cell.nameLabel.text = characterInfo.name
-            cell.nameLabel.layer.masksToBounds = false
-            cell.nameLabel.layer.cornerRadius = 5.0
-            cell.nameLabel.clipsToBounds = true
-            if let strUrl = characterInfo.image.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
-                let imgUrl = URL(string: strUrl) {
+            if let characterInfo: CharacterObject = self.charactersFiltered?[indexPath.row],
+             let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell
+            {
+                cell.nameLabel.text = characterInfo.name
+                cell.nameLabel.layer.masksToBounds = false
+                cell.nameLabel.layer.cornerRadius = 5.0
+                cell.nameLabel.clipsToBounds = true
+                if let strUrl = characterInfo.image.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+                    let imgUrl = URL(string: strUrl) {
 
-                cell.cellImage.loadImageWithUrl(imgUrl)
-                cell.cellImage.layer.masksToBounds = false
-                cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height/2
-                cell.cellImage.layer.borderWidth = 1
-                cell.cellImage.layer.borderColor = UIColor.clear.cgColor
-                cell.cellImage.clipsToBounds = true
-                
-                cell.backgroundRoundView.layer.masksToBounds = false
-                cell.backgroundRoundView.layer.cornerRadius = cell.backgroundRoundView.frame.height/2
-                cell.backgroundRoundView.layer.borderWidth = 1
-                cell.backgroundRoundView.layer.borderColor = UIColor.clear.cgColor
-                cell.backgroundRoundView.clipsToBounds = true
-                cell.selectedBackgroundView?.backgroundColor = .systemMint
-          }
-            return cell
+                    cell.cellImage.loadImageWithUrl(imgUrl)
+                    cell.cellImage.layer.masksToBounds = false
+                    cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height/2
+                    cell.cellImage.layer.borderWidth = 1
+                    cell.cellImage.layer.borderColor = UIColor.clear.cgColor
+                    cell.cellImage.clipsToBounds = true
+                    
+                    cell.backgroundRoundView.layer.masksToBounds = false
+                    cell.backgroundRoundView.layer.cornerRadius = cell.backgroundRoundView.frame.height/2
+                    cell.backgroundRoundView.layer.borderWidth = 1
+                    cell.backgroundRoundView.layer.borderColor = UIColor.clear.cgColor
+                    cell.backgroundRoundView.clipsToBounds = true
+                    cell.selectedBackgroundView?.backgroundColor = .systemMint
+              }
+                return cell
+            } else {
+                return UITableViewCell()
+            }
         } else {
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath) as? EmptyResultsTableViewCell
+            let sadMortyAnimation: LottieAnimationView = LottieAnimationView(name: "animation_lmyxell9")
+
+            sadMortyAnimation.frame = cell?.sadAnimation.bounds ?? self.tableView.bounds
+            sadMortyAnimation.contentMode = .scaleAspectFit
+            sadMortyAnimation.loopMode = .loop
+            cell?.sadAnimation.addSubview(sadMortyAnimation)
+            sadMortyAnimation.play()
+            return cell ?? UITableViewCell()
         }
-        
     }
     
 }

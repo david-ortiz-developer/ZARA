@@ -87,6 +87,45 @@
                                             <outlet property="nameLabel" destination="7g5-5U-K6M" id="82f-VV-cAU"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="emptyCell" id="Tap-sl-vCN" customClass="EmptyResultsTableViewCell" customModule="ZARAfit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="240" width="363" height="190"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tap-sl-vCN" id="KCR-Si-eqH">
+                                            <rect key="frame" x="0.0" y="0.0" width="363" height="190"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cp4-gE-i5t">
+                                                    <rect key="frame" x="0.0" y="22" width="363" height="168"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9O-Fz-fKS">
+                                                    <rect key="frame" x="18" y="0.0" width="327" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="xa8-82-5IU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="GetSchwifty-Regular" family="Get Schwifty" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <size key="shadowOffset" width="2" height="2"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Cp4-gE-i5t" firstAttribute="leading" secondItem="KCR-Si-eqH" secondAttribute="leading" id="2Je-AM-dGS"/>
+                                                <constraint firstAttribute="trailing" secondItem="t9O-Fz-fKS" secondAttribute="trailing" constant="18" id="4tk-Jf-Hd6"/>
+                                                <constraint firstAttribute="trailing" secondItem="Cp4-gE-i5t" secondAttribute="trailing" id="4uB-au-hEC"/>
+                                                <constraint firstItem="t9O-Fz-fKS" firstAttribute="top" secondItem="KCR-Si-eqH" secondAttribute="top" id="kk2-AU-jQs"/>
+                                                <constraint firstItem="Cp4-gE-i5t" firstAttribute="top" secondItem="t9O-Fz-fKS" secondAttribute="bottom" id="oQ8-6r-rXc"/>
+                                                <constraint firstItem="t9O-Fz-fKS" firstAttribute="leading" secondItem="KCR-Si-eqH" secondAttribute="leading" constant="18" id="tKf-1z-fkN"/>
+                                                <constraint firstAttribute="bottom" secondItem="Cp4-gE-i5t" secondAttribute="bottom" id="zcJ-eL-pDy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="sadAnimation" destination="Cp4-gE-i5t" id="pA9-zt-2SL"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="hCx-KX-D5Q"/>
