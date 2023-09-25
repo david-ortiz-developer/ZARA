@@ -8,7 +8,6 @@
 import UIKit
 class CharactersListInteractor: CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol?
-    
     func loadCharacters(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void) {
         loadFromServer { result in
             switch result {
@@ -19,29 +18,24 @@ class CharactersListInteractor: CharactersListInteractorProtocol {
             }
         }
     }
-    
     func loadFromServer(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void) {
         guard let page = presenter?.page else {
             completion(.failure(NetworkError.invalidInput))
             return
         }
-        
         guard let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\(page)") else {
             completion(.failure(NetworkError.invalidURL))
             return
         }
-        
-        let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+        let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, _, error) in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
             guard let jsonData = data else {
                 completion(.failure(NetworkError.noData))
                 return
             }
-            
             do {
                 let responseList = try JSONDecoder().decode(CharacterObjectResponse.self, from: jsonData)
                 completion(.success(responseList))
@@ -49,8 +43,6 @@ class CharactersListInteractor: CharactersListInteractorProtocol {
                 completion(.failure(error))
             }
         }
-        
         urlSession.resume()
     }
 }
-

@@ -8,19 +8,20 @@
 import UIKit
 import Lottie
 
-class CharactersListViewController: UIViewController, CharactersListViewControllerProtocol, UISearchResultsUpdating, UISearchBarDelegate {
+class CharactersListViewController: UIViewController,
+                                    CharactersListViewControllerProtocol,
+                                    UISearchResultsUpdating,
+                                        UISearchBarDelegate {
 
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var errorView: UIView!
     @IBOutlet weak var animationErrorView: UIView!
-    
     private var animationView: LottieAnimationView?
     var presenter: CharactersListPresenterProtocol?
     let searchController = UISearchController(searchResultsController: nil)
     private var charactersFiltered: [CharacterObject]?
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,6 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
         navigationItem.searchController = searchController
             definesPresentationContext = true
         searchBar.addSubview(searchController.searchBar)
-        
         let errorAnimation = configureErrorAnimation()
         animationErrorView.addSubview(errorAnimation)
         errorAnimation.play()
@@ -45,7 +45,7 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
 
     func showLoader() {
         self.loaderView.alpha = 0.0
-        animationView = .init(name:"animation_lmuxghgn")
+        animationView = .init(name: "animation_lmuxghgn")
         animationView?.frame = view.bounds
         animationView?.contentMode = .scaleAspectFit
         animationView?.loopMode = .loop
@@ -65,7 +65,7 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
                })
 
     }
-    func showErrorView(){
+    func showErrorView() {
         self.errorView.isHidden = false
         self.searchController.searchBar.isHidden = true
     }
@@ -75,14 +75,16 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
     }
     func reloadTable() {
         if !(searchController.searchBar.text?.isEmpty ?? false) {
-            self.charactersFiltered = self.presenter?.characters?.filter { $0.name.lowercased().contains(searchController.searchBar.text?.lowercased() ?? "")}
+            self.charactersFiltered = self.presenter?.characters?.filter {
+                $0.name.lowercased().contains(searchController.searchBar.text?.lowercased() ?? "")
+            }
         } else {
             self.charactersFiltered = self.presenter?.characters
         }
         self.tableView.reloadData()
     }
     func updateSearchResults(for searchController: UISearchController) {
-        if let _ = searchController.searchBar.text {
+        if searchController.searchBar.text != nil {
             reloadTable()
         }
     }
@@ -101,15 +103,20 @@ extension CharactersListViewController: UITableViewDataSource {
         }
 
         guard let characterInfo = charactersFiltered?[indexPath.row],
-              let cell = configureCharacterCell(tableView: tableView, indexPath: indexPath, characterInfo: characterInfo) else {
+              let cell = configureCharacterCell(tableView: tableView,
+                                                indexPath: indexPath,
+                                                characterInfo: characterInfo) else {
             return UITableViewCell()
         }
 
         return cell
     }
 
-    private func configureCharacterCell(tableView: UITableView, indexPath: IndexPath, characterInfo: CharacterObject) -> CharactersTableViewCell? {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell else {
+    private func configureCharacterCell(tableView: UITableView,
+                                        indexPath: IndexPath,
+                                        characterInfo: CharacterObject) -> CharactersTableViewCell? {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell",
+                                                       for: indexPath) as? CharactersTableViewCell else {
             return nil
         }
 
@@ -120,7 +127,8 @@ extension CharactersListViewController: UITableViewDataSource {
     }
 
     private func configureEmptyCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath) as? EmptyResultsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell",
+                                                       for: indexPath) as? EmptyResultsTableViewCell else {
             return UITableViewCell()
         }
 
@@ -138,7 +146,6 @@ extension CharactersListViewController: UITableViewDataSource {
         sadMortyAnimation.loopMode = .loop
         return sadMortyAnimation
     }
-    
     private func configureErrorAnimation() -> LottieAnimationView {
         let errorAnimation = LottieAnimationView(name: "animation_lmz1snim")
         errorAnimation.frame = self.animationErrorView.bounds
@@ -177,7 +184,6 @@ extension CharactersListViewController: UITableViewDelegate {
         if (self.presenter?.page ?? 1) < (self.presenter?.totalPages ?? 1) {
             let currentOffset = scrollView.contentOffset.y
             let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-            
             if maximumOffset - currentOffset <= 10.0 {
                 self.presenter?.page += 1
                 self.presenter?.listCharacters()

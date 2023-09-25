@@ -14,39 +14,30 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var characterImage: ImageLoader!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var characterName: UILabel!
-  
     private var closeAnimationView: LottieAnimationView?
     private var frameAnimationView: LottieAnimationView?
-    
     // MARK: - Lifecycle Methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureAnimations()
     }
-    
     // MARK: - Private Methods
-    
     private func configureUI() {
         assert(character != nil, "Character can't be nil")
-        
         if let strUrl = character.image.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
            let imgUrl = URL(string: strUrl) {
             characterImage.loadImageWithUrl(imgUrl)
             characterImage.layer.cornerRadius = 15
         }
-        
         characterName.text = character.name
         characterName.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -10.radians...10.radians))
     }
-    
     private func configureAnimations() {
         configureAnimationView(&closeAnimationView, name: "animation_lmxtsihn", frame: closeButton.frame)
         configureAnimationView(&frameAnimationView, name: "animation_lmxum64d", frame: characterImage.frame)
         view.bringSubviewToFront(closeButton)
     }
-    
     private func configureAnimationView(_ animationView: inout LottieAnimationView?, name: String, frame: CGRect) {
         animationView = LottieAnimationView(name: name)
         animationView?.frame = frame
@@ -57,9 +48,7 @@ class CharacterDetailViewController: UIViewController {
             animationView.play()
         }
     }
-    
     // MARK: - Actions
-    
     @IBAction func closeView(sender: UIButton) {
         dismiss(animated: true)
     }
@@ -71,7 +60,9 @@ extension CharacterDetailViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterPropertiesCell", for: indexPath) as? CharacterInfoCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier:
+                                                        "characterPropertiesCell", for:
+                                                        indexPath) as? CharacterInfoCell else {
             return UITableViewCell()
         }
 
@@ -136,4 +127,3 @@ extension CharacterDetailViewController: UITableViewDataSource {
         }
     }
 }
-

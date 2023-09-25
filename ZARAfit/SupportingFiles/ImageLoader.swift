@@ -39,7 +39,7 @@ class ImageLoader: UIImageView {
         }
 
         // image does not available in cache.. so retrieving it from url...
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, _, error) in
 
             if error != nil {
                 print(error as Any)

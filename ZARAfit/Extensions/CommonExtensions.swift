@@ -7,7 +7,7 @@
 
 import Foundation
 extension BinaryFloatingPoint {
-    var radians : Self {
+    var radians: Self {
         return self * .pi / 180
     }
 }

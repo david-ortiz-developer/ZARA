@@ -8,30 +8,42 @@
 import UIKit
 class CharactersListRouter: CharactersListRouterProtocol {
     static func createCharactersListView() -> CharactersListViewController {
-        let view = instantiateViewController(fromStoryboard: .charactersListView) as! CharactersListViewController
+        guard let view = instantiateViewController(fromStoryboard:
+                .charactersListView) as? CharactersListViewController else {
+            fatalError("Unable to instantiate CharactersListViewController")
+        }
+
         let presenter = CharactersListPresenter()
         let interactor = CharactersListInteractor()
         let router = CharactersListRouter()
-        
+
         configure(view: view, with: presenter, interactor: interactor, and: router)
         return view
     }
-    
+
     func createDetailView(for character: CharacterObject) -> CharacterDetailViewController {
-        let detailView = CharactersListRouter.instantiateViewController(fromStoryboard: .characterDetailView) as! CharacterDetailViewController
+        guard let detailView = CharactersListRouter.instantiateViewController(fromStoryboard:
+                .characterDetailView) as? CharacterDetailViewController else {
+            fatalError("Unable to instantiate CharacterDetailViewController")
+        }
+
         detailView.character = character
         return detailView
     }
-    
-    private static func configure(view: CharactersListViewController, with presenter: CharactersListPresenter, interactor: CharactersListInteractor, and router: CharactersListRouter) {
+
+    private static func configure(view:
+                                  CharactersListViewController,
+                                  with presenter: CharactersListPresenter,
+                                  interactor: CharactersListInteractor,
+                                  and router: CharactersListRouter) {
         view.presenter = presenter
         presenter.view = view
         presenter.router = router
         presenter.interactor = interactor
         interactor.presenter = presenter
     }
-    
-    private static func instantiateViewController(fromStoryboard storyboard: Storyboard) -> UIViewController {
+
+    private static func instantiateViewController(fromStoryboard storyboard: Storyboard) -> UIViewController? {
         return storyboard.instance.instantiateViewController(withIdentifier: storyboard.identifier)
     }
 }
@@ -40,7 +52,6 @@ class CharactersListRouter: CharactersListRouterProtocol {
 private enum Storyboard {
     case charactersListView
     case characterDetailView
-    
     var instance: UIStoryboard {
         switch self {
         case .charactersListView:
@@ -49,7 +60,6 @@ private enum Storyboard {
             return UIStoryboard(name: "CharacterDetailStoryBoard", bundle: Bundle.main)
         }
     }
-    
     var identifier: String {
         switch self {
         case .charactersListView:
@@ -59,4 +69,3 @@ private enum Storyboard {
         }
     }
 }
-

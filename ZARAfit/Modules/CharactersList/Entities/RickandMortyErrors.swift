@@ -11,7 +11,6 @@ enum NetworkError: Error {
     case invalidURL
     case noData
     case decodingError(Error)
-    
     var localizedDescription: String {
         switch self {
         case .invalidInput:
@@ -25,4 +24,3 @@ enum NetworkError: Error {
         }
     }
 }
-

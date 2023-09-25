@@ -7,5 +7,5 @@
 
 import UIKit
 class EmptyResultsTableViewCell: UITableViewCell {
-    @IBOutlet weak var sadAnimation:UIView!
+    @IBOutlet weak var sadAnimation: UIView!
 }

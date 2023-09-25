@@ -12,15 +12,13 @@ class FakeInteractor: CharactersListInteractorProtocol {
 
     func loadCharacters(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void) {
         if simulateError {
-            let error = NSError(domain: "com.rickandmortyapi.network", code: -1009, userInfo: nil) // Simulated network error
+            let error = NSError(domain: "com.rickandmortyapi.network", code: -1009, userInfo: nil)
             completion(.failure(error))
         } else {
             completion(.success(CharacterObjectResponseMock.createMock()))
         }
     }
-    
     var presenter: CharactersListPresenterProtocol?
-    
     struct CharacterObjectResponseMock {
         static func createMock() -> CharacterObjectResponse {
             let info = InformationObject(count: 2, pages: 12, next: nil, prev: nil)
@@ -33,7 +31,8 @@ class FakeInteractor: CharactersListInteractorProtocol {
                 type: "Genius",
                 gender: "Male",
                 origin: CharacterOriginObject(name: "Earth (C-137)", url: "https://rickandmortyapi.com/api/location/1"),
-                location: CharacterLocationObject(name: "Earth (Replacement Dimension)", url: "https://rickandmortyapi.com/api/location/20"),
+                location: CharacterLocationObject(name: "Earth (Replacement Dimension)",
+                                                  url: "https://rickandmortyapi.com/api/location/20"),
                 image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
                 episode: ["https://rickandmortyapi.com/api/episode/1", "https://rickandmortyapi.com/api/episode/2"],
                 url: "https://rickandmortyapi.com/api/character/1",
@@ -48,7 +47,8 @@ class FakeInteractor: CharactersListInteractorProtocol {
                 type: "",
                 gender: "Male",
                 origin: CharacterOriginObject(name: "Earth (C-137)", url: "https://rickandmortyapi.com/api/location/1"),
-                location: CharacterLocationObject(name: "Earth (Replacement Dimension)", url: "https://rickandmortyapi.com/api/location/20"),
+                location: CharacterLocationObject(name: "Earth (Replacement Dimension)",
+                                                  url: "https://rickandmortyapi.com/api/location/20"),
                 image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
                 episode: ["https://rickandmortyapi.com/api/episode/1", "https://rickandmortyapi.com/api/episode/3"],
                 url: "https://rickandmortyapi.com/api/character/2",
@@ -64,7 +64,6 @@ class FakeInteractor: CharactersListInteractorProtocol {
 
 final class ZARAfitTests: XCTestCase {
     var presenter: CharactersListPresenterProtocol?
-   
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let interactor = FakeInteractor()
@@ -87,7 +86,6 @@ final class ZARAfitTests: XCTestCase {
         }
         return false
     }
-    
     func testCharactersList() throws {
         listCharactersAndAssert()
     }
@@ -98,21 +96,18 @@ final class ZARAfitTests: XCTestCase {
     func testCharacterStatus() throws {
         listCharactersAndAssert()
         let validStatuses = ["Alive", "Dead", "unknown"]
-        
         for character in presenter?.characters ?? [] {
             XCTAssert(validStatuses.contains(character.status), "Invalid character status: \(character.status)")
         }
     }
     func testCharacterImages() throws {
         listCharactersAndAssert()
-        
         for character in presenter?.characters ?? [] {
             XCTAssertTrue(isValidURL(character.image), "Invalid character image URL: \(character.image)")
         }
     }
     func testCharacterOriginURL() throws {
         listCharactersAndAssert()
-        
         for character in presenter?.characters ?? [] {
             XCTAssertTrue(isValidURL(character.origin.url), "Invalid character origin URL: \(character.origin.url)")
         }
@@ -125,14 +120,11 @@ final class ZARAfitTests: XCTestCase {
         interactor.presenter = presenter
 
         let expectation = self.expectation(description: "Network Error Expectation")
-        
         presenter?.listCharacters()
-        
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
             XCTAssertNil(self.presenter?.characters, "Characters should be nil on network error")
             expectation.fulfill()
         }
-        
         waitForExpectations(timeout: 0.5, handler: nil)
     }
 
