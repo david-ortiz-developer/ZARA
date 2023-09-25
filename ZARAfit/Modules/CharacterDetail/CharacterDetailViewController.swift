@@ -13,6 +13,7 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var characterImage: ImageLoader!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var characterName: UILabel!
+  
     private var closeAnimationView: LottieAnimationView?
     private var frameAnimationView: LottieAnimationView?
     

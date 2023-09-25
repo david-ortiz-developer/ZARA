@@ -8,19 +8,29 @@
 import UIKit
 import Lottie
 
-class CharactersListViewController: UIViewController, CharactersListViewControllerProtocol {
-    
+class CharactersListViewController: UIViewController, CharactersListViewControllerProtocol, UISearchResultsUpdating, UISearchBarDelegate {
+
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UIView!
     
     private var animationView: LottieAnimationView?
     var presenter: CharactersListPresenterProtocol?
+    let searchController = UISearchController(searchResultsController: nil)
+    private var charactersFiltered: [CharacterObject]?
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         self.presenter?.listCharacters()
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Filter Characters"
+        navigationItem.searchController = searchController
+            definesPresentationContext = true
+        searchBar.addSubview(searchController.searchBar)
     }
     func configureUI() {
 
@@ -49,16 +59,26 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
 
     }
     func reloadTable() {
+        if !(searchController.searchBar.text?.isEmpty ?? false) {
+            self.charactersFiltered = self.presenter?.characters?.filter { $0.name.lowercased().contains(searchController.searchBar.text?.lowercased() ?? "")}
+        } else {
+            self.charactersFiltered = self.presenter?.characters
+        }
         self.tableView.reloadData()
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+        if let string = searchController.searchBar.text {
+            reloadTable()
+        }
     }
 }
 extension CharactersListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.presenter?.characters?.count ?? 0
+        self.charactersFiltered?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let characterInfo: CharacterObject = self.presenter?.characters?[indexPath.row],
+        if let characterInfo: CharacterObject = self.charactersFiltered?[indexPath.row],
          let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell
         {
             cell.nameLabel.text = characterInfo.name
@@ -103,7 +123,7 @@ extension CharactersListViewController: UITableViewDelegate {
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let character = self.presenter?.characters?[indexPath.row] {
+        if let character = self.charactersFiltered?[indexPath.row] {
             self.presenter?.showDetailfor(character: character)
         }
     }

@@ -24,6 +24,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="Zjy-SF-qEz">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flt-1Y-vPt">
+                                <rect key="frame" x="15" y="74" width="348" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="27O-et-bRY"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="190" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-Qw-zX8">
                                 <rect key="frame" x="15" y="119" width="363" height="684"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -116,6 +123,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Zjy-SF-qEz" secondAttribute="trailing" id="5a2-JR-hyd"/>
+                            <constraint firstItem="flt-1Y-vPt" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="15" id="8cv-es-TxM"/>
                             <constraint firstItem="qMf-1u-Lvl" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="99S-WT-FfM"/>
                             <constraint firstItem="Zjy-SF-qEz" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Hwt-jv-sq6"/>
                             <constraint firstAttribute="bottom" secondItem="qMf-1u-Lvl" secondAttribute="bottom" id="VAc-4b-eQ6"/>
@@ -123,6 +131,8 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rha-Qw-zX8" secondAttribute="trailing" constant="15" id="e32-nS-Swh"/>
                             <constraint firstItem="Zjy-SF-qEz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="fnD-uH-dpT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Rha-Qw-zX8" secondAttribute="bottom" constant="15" id="lFh-Bv-esK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="flt-1Y-vPt" secondAttribute="trailing" constant="30" id="mEa-Mh-JQH"/>
+                            <constraint firstItem="flt-1Y-vPt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="rou-Ir-Vyi"/>
                             <constraint firstItem="Rha-Qw-zX8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="s2O-1r-Hce"/>
                             <constraint firstAttribute="bottom" secondItem="Zjy-SF-qEz" secondAttribute="bottom" id="wUl-Hd-HTa"/>
                             <constraint firstAttribute="trailing" secondItem="qMf-1u-Lvl" secondAttribute="trailing" id="wa1-Nn-57j"/>
@@ -131,6 +141,7 @@
                     </view>
                     <connections>
                         <outlet property="loaderView" destination="qMf-1u-Lvl" id="kYr-Kp-d4G"/>
+                        <outlet property="searchBar" destination="flt-1Y-vPt" id="8H1-Ng-ATs"/>
                         <outlet property="tableView" destination="Rha-Qw-zX8" id="3yJ-ZI-5qf"/>
                     </connections>
                 </viewController>
