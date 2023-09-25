@@ -36,6 +36,18 @@ final class ZARAfitUITests: XCTestCase {
         app.staticTexts["Alexander"].tap()
         XCTAssert(app.staticTexts["Dead"].exists)
     }
+    func testCryingMortyEmptyTable() throws {
+        
+        let app = XCUIApplication()
+        app.launch()
+        app.navigationBars["ZARAfit.CharactersListView"].searchFields["Filter Characters"].tap()
+        
+        let xCapsKey = app.keyboards.keys["X"]
+        xCapsKey.tap()
+        let xKey = app.keyboards.keys["x"]
+        xKey.tap()
+        XCTAssert(app.tables/*@START_MENU_TOKEN@*/.staticTexts["No results"]/*[[".cells.staticTexts[\"No results\"]",".staticTexts[\"No results\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.exists)
+    }
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {

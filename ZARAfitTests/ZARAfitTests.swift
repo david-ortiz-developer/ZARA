@@ -8,8 +8,15 @@
 import XCTest
 @testable import ZARAfit
 class FakeInteractor: CharactersListInteractorProtocol {
+    var simulateError = false // Flag to simulate a network error
+
     func loadCharacters(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void) {
-        completion(.success(CharacterObjectResponseMock.createMock()))
+        if simulateError {
+            let error = NSError(domain: "com.rickandmortyapi.network", code: -1009, userInfo: nil) // Simulated network error
+            completion(.failure(error))
+        } else {
+            completion(.success(CharacterObjectResponseMock.createMock()))
+        }
     }
     
     var presenter: CharactersListPresenterProtocol?
@@ -110,10 +117,29 @@ final class ZARAfitTests: XCTestCase {
             XCTAssertTrue(isValidURL(character.origin.url), "Invalid character origin URL: \(character.origin.url)")
         }
     }
+    func testNetworkError() throws {
+        let interactor = FakeInteractor()
+        interactor.simulateError = true // Simulate a network error
+        presenter = CharactersListPresenter()
+        presenter?.interactor = interactor
+        interactor.presenter = presenter
+
+        let expectation = self.expectation(description: "Network Error Expectation")
+        
+        presenter?.listCharacters()
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            XCTAssertNil(self.presenter?.characters, "Characters should be nil on network error")
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 0.5, handler: nil)
+    }
+
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            presenter?.listCharacters()
         }
     }
 
