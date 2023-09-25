@@ -28,6 +28,9 @@
 		6230C9B82AC1F2E30036A950 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B902AC0AEAA004FC2C8 /* CharacterDetailViewController.swift */; };
 		6230C9B92AC1F30C0036A950 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B812ABFA1D6004FC2C8 /* ImageLoader.swift */; };
 		6230C9BA2AC1F3260036A950 /* CharactersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B852ABFA404004FC2C8 /* CharactersTableViewCell.swift */; };
+		6230C9BD2AC24CB60036A950 /* animation_lmzie8od.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */; };
+		6230C9BE2AC24CB70036A950 /* animation_lmzie8od.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */; };
+		6230C9BF2AC24CB70036A950 /* animation_lmzie8od.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */; };
 		62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */; };
 		62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */; };
 		62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */; };
@@ -98,6 +101,7 @@
 		6230C9A92AC1D4EE0036A950 /* CharacterDetailStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharacterDetailStoryBoard.storyboard; sourceTree = "<group>"; };
 		6230C9AD2AC1DA6B0036A950 /* RickandMortyErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickandMortyErrors.swift; sourceTree = "<group>"; };
 		6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmz1snim.json; sourceTree = "<group>"; };
+		6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmzie8od.json; sourceTree = "<group>"; };
 		62DA1B252ABDC29B004FC2C8 /* ZARAfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZARAfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 		62DA1B672ABE23AD004FC2C8 /* LottieAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */,
 				6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */,
 				6230C9A52AC1C6470036A950 /* animation_lmyxell9.json */,
 				62DA1B962AC0C482004FC2C8 /* animation_lmxum64d.json */,
@@ -422,6 +427,7 @@
 				6230C9B22AC1E2140036A950 /* animation_lmz1snim.json in Resources */,
 				62DA1B302ABDC29B004FC2C8 /* Main.storyboard in Resources */,
 				6230C9AA2AC1D4EE0036A950 /* CharacterDetailStoryBoard.storyboard in Resources */,
+				6230C9BD2AC24CB60036A950 /* animation_lmzie8od.json in Resources */,
 				62DA1B7A2ABE39C8004FC2C8 /* get_schwifty.ttf in Resources */,
 				62DA1B6D2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */,
 				6230C9A62AC1C6480036A950 /* animation_lmyxell9.json in Resources */,
@@ -434,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6230C9BE2AC24CB70036A950 /* animation_lmzie8od.json in Resources */,
 				6230C9B32AC1E2140036A950 /* animation_lmz1snim.json in Resources */,
 				6230C9AB2AC1D4EE0036A950 /* CharacterDetailStoryBoard.storyboard in Resources */,
 				6230C9A72AC1C6480036A950 /* animation_lmyxell9.json in Resources */,
@@ -446,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6230C9BF2AC24CB70036A950 /* animation_lmzie8od.json in Resources */,
 				6230C9B42AC1E2140036A950 /* animation_lmz1snim.json in Resources */,
 				6230C9AC2AC1D4EE0036A950 /* CharacterDetailStoryBoard.storyboard in Resources */,
 				6230C9A82AC1C6480036A950 /* animation_lmyxell9.json in Resources */,

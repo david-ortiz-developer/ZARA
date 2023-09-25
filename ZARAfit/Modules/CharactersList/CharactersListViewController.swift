@@ -159,7 +159,7 @@ extension CharactersListViewController: UITableViewDataSource {
               let imgUrl = URL(string: strUrl) else {
             return
         }
-
+        cell.selectionColor = UIColor.clear
         cell.cellImage.loadImageWithUrl(imgUrl)
         configureRoundedCorners(for: cell)
         cell.selectedBackgroundView?.backgroundColor = .systemMint
