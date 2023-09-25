@@ -8,28 +8,49 @@
 import UIKit
 class CharactersListInteractor: CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol?
-    func loadCharacters(completion: @escaping (CharacterObjectResponse?) -> Void) {
-        self.loadFromServer { characters  in
-            completion(characters)
+    
+    func loadCharacters(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void) {
+        loadFromServer { result in
+            switch result {
+            case .success(let characters):
+                completion(.success(characters))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
-    func loadFromServer(completion: @escaping (CharacterObjectResponse?) -> Void) {
-        if let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\((self.presenter?.page ?? 1))") {
-            let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
-                if let _ = error {
-                    completion(nil)
-                }
-                if let jsonData = data {
-                    let responseList: CharacterObjectResponse = try! JSONDecoder().decode(CharacterObjectResponse.self, from: jsonData)
-                    DispatchQueue.main.async {
-                        //self.save(banks: banksList)
-                    }
-                    
-                    completion(responseList)
-                }
+    
+    func loadFromServer(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void) {
+        guard let page = presenter?.page else {
+            completion(.failure(NetworkError.invalidInput))
+            return
+        }
+        
+        guard let url = URL(string: "https://rickandmortyapi.com/api/character/?page=\(page)") else {
+            completion(.failure(NetworkError.invalidURL))
+            return
+        }
+        
+        let urlSession = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
             }
             
-            urlSession.resume()
+            guard let jsonData = data else {
+                completion(.failure(NetworkError.noData))
+                return
+            }
+            
+            do {
+                let responseList = try JSONDecoder().decode(CharacterObjectResponse.self, from: jsonData)
+                completion(.success(responseList))
+            } catch {
+                completion(.failure(error))
+            }
         }
+        
+        urlSession.resume()
     }
 }
+

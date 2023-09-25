@@ -13,6 +13,8 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UIView!
+    @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var animationErrorView: UIView!
     
     private var animationView: LottieAnimationView?
     var presenter: CharactersListPresenterProtocol?
@@ -24,6 +26,9 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
         super.viewDidLoad()
         configureUI()
         self.presenter?.listCharacters()
+        self.hideErrorView(sender: UIButton())
+    }
+    func configureUI() {
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -31,9 +36,11 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
         navigationItem.searchController = searchController
             definesPresentationContext = true
         searchBar.addSubview(searchController.searchBar)
-    }
-    func configureUI() {
-
+        
+        let errorAnimation = configureErrorAnimation()
+        animationErrorView.addSubview(errorAnimation)
+        errorAnimation.play()
+        self.view.bringSubviewToFront(errorView)
     }
 
     func showLoader() {
@@ -58,6 +65,14 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
                })
 
     }
+    func showErrorView(){
+        self.errorView.isHidden = false
+        self.searchController.searchBar.isHidden = true
+    }
+    @IBAction func hideErrorView(sender: UIButton) {
+        self.errorView.isHidden = true
+        self.searchController.searchBar.isHidden = false
+    }
     func reloadTable() {
         if !(searchController.searchBar.text?.isEmpty ?? false) {
             self.charactersFiltered = self.presenter?.characters?.filter { $0.name.lowercased().contains(searchController.searchBar.text?.lowercased() ?? "")}
@@ -74,60 +89,89 @@ class CharactersListViewController: UIViewController, CharactersListViewControll
 }
 extension CharactersListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let resultsCount = self.charactersFiltered?.count,
-           resultsCount > 0 {
-            return resultsCount
-        } else {
+        guard let resultsCount = charactersFiltered?.count, resultsCount > 0 else {
             return 1
         }
+        return resultsCount
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let resultsCount = self.charactersFiltered?.count,
-        resultsCount > 0
-        {
-            if let characterInfo: CharacterObject = self.charactersFiltered?[indexPath.row],
-             let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell
-            {
-                cell.nameLabel.text = characterInfo.name
-                cell.nameLabel.layer.masksToBounds = false
-                cell.nameLabel.layer.cornerRadius = 5.0
-                cell.nameLabel.clipsToBounds = true
-                if let strUrl = characterInfo.image.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
-                    let imgUrl = URL(string: strUrl) {
-
-                    cell.cellImage.loadImageWithUrl(imgUrl)
-                    cell.cellImage.layer.masksToBounds = false
-                    cell.cellImage.layer.cornerRadius = cell.cellImage.frame.height/2
-                    cell.cellImage.layer.borderWidth = 1
-                    cell.cellImage.layer.borderColor = UIColor.clear.cgColor
-                    cell.cellImage.clipsToBounds = true
-                    
-                    cell.backgroundRoundView.layer.masksToBounds = false
-                    cell.backgroundRoundView.layer.cornerRadius = cell.backgroundRoundView.frame.height/2
-                    cell.backgroundRoundView.layer.borderWidth = 1
-                    cell.backgroundRoundView.layer.borderColor = UIColor.clear.cgColor
-                    cell.backgroundRoundView.clipsToBounds = true
-                    cell.selectedBackgroundView?.backgroundColor = .systemMint
-              }
-                return cell
-            } else {
-                return UITableViewCell()
-            }
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath) as? EmptyResultsTableViewCell
-            let sadMortyAnimation: LottieAnimationView = LottieAnimationView(name: "animation_lmyxell9")
-
-            sadMortyAnimation.frame = cell?.sadAnimation.bounds ?? self.tableView.bounds
-            sadMortyAnimation.contentMode = .scaleAspectFit
-            sadMortyAnimation.loopMode = .loop
-            cell?.sadAnimation.addSubview(sadMortyAnimation)
-            sadMortyAnimation.play()
-            return cell ?? UITableViewCell()
+        guard let resultsCount = charactersFiltered?.count, resultsCount > 0 else {
+            return configureEmptyCell(tableView: tableView, indexPath: indexPath)
         }
+
+        guard let characterInfo = charactersFiltered?[indexPath.row],
+              let cell = configureCharacterCell(tableView: tableView, indexPath: indexPath, characterInfo: characterInfo) else {
+            return UITableViewCell()
+        }
+
+        return cell
+    }
+
+    private func configureCharacterCell(tableView: UITableView, indexPath: IndexPath, characterInfo: CharacterObject) -> CharactersTableViewCell? {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "charactersTableCell", for: indexPath) as? CharactersTableViewCell else {
+            return nil
+        }
+
+        cell.nameLabel.text = characterInfo.name
+        configureCellAppearance(cell: cell, urlString: characterInfo.image)
+
+        return cell
+    }
+
+    private func configureEmptyCell(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "emptyCell", for: indexPath) as? EmptyResultsTableViewCell else {
+            return UITableViewCell()
+        }
+
+        let sadMortyAnimation = configureSadMortyAnimation(for: cell)
+        cell.sadAnimation.addSubview(sadMortyAnimation)
+        sadMortyAnimation.play()
+
+        return cell
+    }
+
+    private func configureSadMortyAnimation(for cell: EmptyResultsTableViewCell) -> LottieAnimationView {
+        let sadMortyAnimation = LottieAnimationView(name: "animation_lmyxell9")
+        sadMortyAnimation.frame = cell.sadAnimation.bounds
+        sadMortyAnimation.contentMode = .scaleAspectFit
+        sadMortyAnimation.loopMode = .loop
+        return sadMortyAnimation
     }
     
+    private func configureErrorAnimation() -> LottieAnimationView {
+        let errorAnimation = LottieAnimationView(name: "animation_lmz1snim")
+        errorAnimation.frame = self.animationErrorView.bounds
+        errorAnimation.contentMode = .scaleAspectFit
+        errorAnimation.loopMode = .loop
+        return errorAnimation
+    }
+
+    private func configureCellAppearance(cell: CharactersTableViewCell, urlString: String) {
+        guard let strUrl = urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+              let imgUrl = URL(string: strUrl) else {
+            return
+        }
+
+        cell.cellImage.loadImageWithUrl(imgUrl)
+        configureRoundedCorners(for: cell)
+        cell.selectedBackgroundView?.backgroundColor = .systemMint
+    }
+
+    private func configureRoundedCorners(for cell: CharactersTableViewCell) {
+        configureRoundedCorners(for: cell.cellImage)
+        configureRoundedCorners(for: cell.backgroundRoundView)
+    }
+
+    private func configureRoundedCorners(for view: UIView) {
+        view.layer.masksToBounds = false
+        view.layer.cornerRadius = view.frame.height / 2
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.clear.cgColor
+        view.clipsToBounds = true
+    }
 }
+
 extension CharactersListViewController: UITableViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if (self.presenter?.page ?? 1) < (self.presenter?.totalPages ?? 1) {

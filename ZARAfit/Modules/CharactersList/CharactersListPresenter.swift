@@ -17,28 +17,43 @@ class CharactersListPresenter: CharactersListPresenterProtocol {
     var loading = false
     
     func listCharacters() {
-        if self.loading == false {
-            self.view?.showLoader()
-            self.loading = true
-            self.interactor?.loadCharacters { result in
-                if let responseList = result {
+        guard !loading else { return }
+        loading = true
+        
+        view?.showLoader()
+        interactor?.loadCharacters { [weak self] results in
+            guard let self = self else { return }
+            switch results {
+            case .success(let characterObjectResponse):
+                if let responseList = characterObjectResponse {
                     if self.page == 1 {
                         self.characters = responseList.results
                         self.totalPages = responseList.info.pages
                     } else {
                         self.characters?.append(contentsOf: responseList.results)
                     }
+                } else {
+                    DispatchQueue.main.async {
+                        self.view?.showErrorView()
+                    }
                 }
+            case .failure(let error):
                 DispatchQueue.main.async {
-                    self.view?.reloadTable()
-                    self.view?.hideLoader()
+                    self.view?.showErrorView()
+                    print("failed \(error.localizedDescription)")
                 }
-                self.loading = false
             }
+            DispatchQueue.main.async {
+                self.view?.reloadTable()
+                self.view?.hideLoader()
+            }
+            self.loading = false
         }
     }
+    
     func showDetailfor(character: CharacterObject) {
-        guard let detailVC = self.router?.createDetailView(for: character) else { return  }
-        self.view?.showDetailViewController(viewController: detailVC)
+        guard let detailVC = router?.createDetailView(for: character) else { return }
+        view?.showDetailViewController(viewController: detailVC)
     }
 }
+

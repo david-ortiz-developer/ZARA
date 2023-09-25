@@ -27,7 +27,7 @@ protocol CharactersListPresenterProtocol {
 protocol CharactersListInteractorProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}
     
-    func loadCharacters(completion: @escaping (CharacterObjectResponse?) -> Void)
+    func loadCharacters(completion: @escaping (Result<CharacterObjectResponse?, Error>) -> Void)
 }
 protocol CharactersListViewControllerProtocol {
     var presenter: CharactersListPresenterProtocol? {get set}
@@ -36,4 +36,5 @@ protocol CharactersListViewControllerProtocol {
     func hideLoader()
     func reloadTable()
     func showDetailViewController(viewController: CharacterDetailViewController)
+    func showErrorView()
 }
