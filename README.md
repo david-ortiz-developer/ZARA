@@ -1,4 +1,4 @@
-# **ZARAfit iOS Coding Exercise**
+# **iOS Coding Exercise**
 
 This repository contains the solution for the iOS coding exercise required for the Cibernos iOS software engineer position application. It encompasses unit tests, UI tests, image cache management, error handling, search/filter functionalities, network error simulation, and performance measurement tests.
 
