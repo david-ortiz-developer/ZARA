@@ -8,6 +8,7 @@ This repository contains the solution for the iOS coding exercise required for t
 - [**Running the Project**](#running-the-project)
 - [**Dependencies**](#dependencies)
 - [**Unit Tests**](#unit-tests)
+- [**UI Tests**](#ui-tests)
 - [**Network Error Simulation**](#network-error-simulation)
 - [**Performance Measurement**](#performance-measurement)
 
