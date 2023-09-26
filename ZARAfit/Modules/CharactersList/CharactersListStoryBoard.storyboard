@@ -182,24 +182,29 @@
                                             <constraint firstAttribute="height" constant="300" id="tbm-BC-5Db"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Existence is pain, Jerry!&quot; - Mr. Meeseeks" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e59-pi-cEF">
-                                        <rect key="frame" x="59.666666666666657" y="446" width="274" height="96"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e59-pi-cEF">
+                                        <rect key="frame" x="59.666666666666657" y="312" width="274" height="230"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="96" id="6eZ-nL-DQo"/>
+                                            <constraint firstAttribute="height" constant="230" id="6eZ-nL-DQo"/>
                                             <constraint firstAttribute="width" constant="274" id="elM-hY-6Ol"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorGujarati-Regular" family="Kohinoor Gujarati" pointSize="24"/>
+                                        <mutableString key="text">Morty: "Geez, Rick, looks like we hit a glitch!"
+
+Don't worry, our tech portal gun is trying to fix this interdimensional hiccup. In the meantime, just sit tight and maybe watch an intergalactic episode of "Two Brothers" on the interdimensional TV?
+
+👾 Error Code: 42X-R1C-KNM0RTY 👾</mutableString>
+                                        <fontDescription key="fontDescription" name="KohinoorGujarati-Regular" family="Kohinoor Gujarati" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVv-kQ-rQo">
-                                        <rect key="frame" x="59.666666666666657" y="378" width="274" height="60"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🛸 Uh-oh! Something went sideways in the multiverse! 🌀" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVv-kQ-rQo">
+                                        <rect key="frame" x="59.666666666666657" y="204" width="274" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="cQ3-WD-D6A"/>
+                                            <constraint firstAttribute="height" constant="100" id="cQ3-WD-D6A"/>
                                             <constraint firstAttribute="width" constant="274" id="xQk-o7-CEv"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="24"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="22"/>
+                                        <color key="textColor" systemColor="systemPinkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWX-dO-hlS">
@@ -210,9 +215,18 @@
                                             <action selector="hideErrorViewWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="klS-Jt-PCU"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Src-Wg-5Tc">
+                                        <rect key="frame" x="273" y="120" width="100" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="NOe-oU-yVQ"/>
+                                            <constraint firstAttribute="height" constant="100" id="yR1-VL-TV8"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Src-Wg-5Tc" secondAttribute="trailing" constant="20" id="1zq-i4-6SS"/>
                                     <constraint firstItem="zVv-kQ-rQo" firstAttribute="centerX" secondItem="a50-d5-vqO" secondAttribute="centerX" id="5PU-f6-iET"/>
                                     <constraint firstItem="e59-pi-cEF" firstAttribute="top" secondItem="zVv-kQ-rQo" secondAttribute="bottom" constant="8" symbolic="YES" id="Bv1-Lj-YEy"/>
                                     <constraint firstAttribute="bottom" secondItem="zR0-3X-D7r" secondAttribute="bottom" id="TC6-sf-5EF"/>
@@ -227,6 +241,7 @@
                                     <constraint firstItem="3uw-y5-OZt" firstAttribute="top" secondItem="a50-d5-vqO" secondAttribute="top" id="tjz-wT-JZ8"/>
                                     <constraint firstItem="VWX-dO-hlS" firstAttribute="leading" secondItem="a50-d5-vqO" secondAttribute="leading" id="usR-42-ECg"/>
                                     <constraint firstAttribute="trailing" secondItem="3uw-y5-OZt" secondAttribute="trailing" id="yHE-TH-DiV"/>
+                                    <constraint firstItem="Src-Wg-5Tc" firstAttribute="top" secondItem="a50-d5-vqO" secondAttribute="top" constant="120" id="zuJ-cl-We3"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -255,6 +270,8 @@
                     </view>
                     <connections>
                         <outlet property="animationErrorView" destination="zR0-3X-D7r" id="7QN-On-5Ws"/>
+                        <outlet property="closeErrorUIButton" destination="VWX-dO-hlS" id="nVM-wx-E11"/>
+                        <outlet property="closeErrorView" destination="Src-Wg-5Tc" id="0Yv-xB-B2W"/>
                         <outlet property="errorView" destination="a50-d5-vqO" id="teW-7T-Grd"/>
                         <outlet property="loaderView" destination="qMf-1u-Lvl" id="kYr-Kp-d4G"/>
                         <outlet property="searchBar" destination="flt-1Y-vPt" id="8H1-Ng-ATs"/>
@@ -279,6 +296,9 @@
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

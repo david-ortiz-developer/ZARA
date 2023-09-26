@@ -17,6 +17,8 @@ class CharactersListViewController: UIViewController,
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UIView!
     @IBOutlet weak var errorView: UIView!
+    @IBOutlet weak var closeErrorView: UIView!
+    @IBOutlet weak var closeErrorUIButton: UIButton!
     @IBOutlet weak var animationErrorView: UIView!
     private var animationView: LottieAnimationView?
     var presenter: CharactersListPresenterProtocol?
@@ -39,7 +41,12 @@ class CharactersListViewController: UIViewController,
         let errorAnimation = configureErrorAnimation()
         animationErrorView.addSubview(errorAnimation)
         errorAnimation.play()
+        let closeErrorAnimation = configureCloseErrorAnimation()
+        closeErrorView.addSubview(closeErrorAnimation)
+        closeErrorAnimation.backgroundColor = .clear
+        closeErrorAnimation.play()
         self.view.bringSubviewToFront(errorView)
+        self.errorView.bringSubviewToFront(self.closeErrorUIButton)
         self.hideErrorView(sender: UIButton())
     }
 
@@ -149,6 +156,13 @@ extension CharactersListViewController: UITableViewDataSource {
     private func configureErrorAnimation() -> LottieAnimationView {
         let errorAnimation = LottieAnimationView(name: "animation_lmz1snim")
         errorAnimation.frame = self.animationErrorView.bounds
+        errorAnimation.contentMode = .scaleAspectFit
+        errorAnimation.loopMode = .loop
+        return errorAnimation
+    }
+    private func configureCloseErrorAnimation() -> LottieAnimationView {
+        let errorAnimation = LottieAnimationView(name: "animation_lmzjn9a4")
+        errorAnimation.frame = self.closeErrorView.bounds
         errorAnimation.contentMode = .scaleAspectFit
         errorAnimation.loopMode = .loop
         return errorAnimation

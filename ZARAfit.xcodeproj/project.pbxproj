@@ -31,6 +31,9 @@
 		6230C9BD2AC24CB60036A950 /* animation_lmzie8od.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */; };
 		6230C9BE2AC24CB70036A950 /* animation_lmzie8od.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */; };
 		6230C9BF2AC24CB70036A950 /* animation_lmzie8od.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */; };
+		6230C9C52AC254FD0036A950 /* animation_lmzjn9a4.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9C42AC254FC0036A950 /* animation_lmzjn9a4.json */; };
+		6230C9C62AC254FD0036A950 /* animation_lmzjn9a4.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9C42AC254FC0036A950 /* animation_lmzjn9a4.json */; };
+		6230C9C72AC254FD0036A950 /* animation_lmzjn9a4.json in Resources */ = {isa = PBXBuildFile; fileRef = 6230C9C42AC254FC0036A950 /* animation_lmzjn9a4.json */; };
 		62DA1B292ABDC29B004FC2C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */; };
 		62DA1B2B2ABDC29B004FC2C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */; };
 		62DA1B2D2ABDC29B004FC2C8 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DA1B2C2ABDC29B004FC2C8 /* CharactersListViewController.swift */; };
@@ -102,6 +105,7 @@
 		6230C9AD2AC1DA6B0036A950 /* RickandMortyErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickandMortyErrors.swift; sourceTree = "<group>"; };
 		6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmz1snim.json; sourceTree = "<group>"; };
 		6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmzie8od.json; sourceTree = "<group>"; };
+		6230C9C42AC254FC0036A950 /* animation_lmzjn9a4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation_lmzjn9a4.json; sourceTree = "<group>"; };
 		62DA1B252ABDC29B004FC2C8 /* ZARAfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZARAfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62DA1B282ABDC29B004FC2C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62DA1B2A2ABDC29B004FC2C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		62DA1B672ABE23AD004FC2C8 /* LottieAnimations */ = {
 			isa = PBXGroup;
 			children = (
+				6230C9C42AC254FC0036A950 /* animation_lmzjn9a4.json */,
 				6230C9BC2AC24CB60036A950 /* animation_lmzie8od.json */,
 				6230C9B12AC1E2140036A950 /* animation_lmz1snim.json */,
 				6230C9A52AC1C6470036A950 /* animation_lmyxell9.json */,
@@ -433,6 +438,7 @@
 				6230C9A62AC1C6480036A950 /* animation_lmyxell9.json in Resources */,
 				62DA1B942AC0BF34004FC2C8 /* animation_lmxtsihn.json in Resources */,
 				62DA1B972AC0C482004FC2C8 /* animation_lmxum64d.json in Resources */,
+				6230C9C52AC254FD0036A950 /* animation_lmzjn9a4.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +450,7 @@
 				6230C9B32AC1E2140036A950 /* animation_lmz1snim.json in Resources */,
 				6230C9AB2AC1D4EE0036A950 /* CharacterDetailStoryBoard.storyboard in Resources */,
 				6230C9A72AC1C6480036A950 /* animation_lmyxell9.json in Resources */,
+				6230C9C62AC254FD0036A950 /* animation_lmzjn9a4.json in Resources */,
 				62DA1B952AC0BF34004FC2C8 /* animation_lmxtsihn.json in Resources */,
 				62DA1B982AC0C482004FC2C8 /* animation_lmxum64d.json in Resources */,
 			);
@@ -457,6 +464,7 @@
 				6230C9B42AC1E2140036A950 /* animation_lmz1snim.json in Resources */,
 				6230C9AC2AC1D4EE0036A950 /* CharacterDetailStoryBoard.storyboard in Resources */,
 				6230C9A82AC1C6480036A950 /* animation_lmyxell9.json in Resources */,
+				6230C9C72AC254FD0036A950 /* animation_lmzjn9a4.json in Resources */,
 				62DA1B7C2ABE39CE004FC2C8 /* get_schwifty.ttf in Resources */,
 				62DA1B6F2ABE265E004FC2C8 /* CharactersListStoryBoard.storyboard in Resources */,
 			);
