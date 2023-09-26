@@ -75,6 +75,6 @@ The `testPerformanceExample` method showcases how to measure the initial list lo
 
 ---
 
-This project is ONLY for Cibernos job application process.
+This project is ONLY FOR INTERNAL USE by Cibernos.
 
 
